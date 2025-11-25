@@ -1,0 +1,5 @@
+FROM postgres:16
+
+COPY data/sql/superstore_init.sql /docker-entrypoint-initdb.d/
+
+COPY data/data/superstore_data.csv /tmp/superstore_data.csv

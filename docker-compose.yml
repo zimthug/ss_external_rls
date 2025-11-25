@@ -1,0 +1,34 @@
+services:
+  superset:
+    image: superset
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ss_container
+    ports:
+      - "8088:8088"
+    environment:
+      - SUPERSET_DATABASE_URI=postgresql+psycopg2://postgres:root1@ss_db:5432/superset
+      - SUPERSET_SECRET_KEY=3xLIotTtRWWoTfGqshCQq8XBy34dadK1Vo24uxzzMwYiLRdt4dvgc8F0
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=admin
+      - ADMIN_EMAIL=chando@dondo.co.zw      
+    depends_on:
+      - db
+  db:
+    image: postgres:16
+    container_name: ss_db
+    environment:
+      - POSTGRES_PASSWORD=root1
+      - POSTGRES_DB=superset
+  warehouse:
+    image: postgres_warehouse
+    build:
+      context: .
+      dockerfile: Dockerfile.warehouse
+    container_name: ss_warehouse
+    environment:
+      - POSTGRES_PASSWORD=root1
+      - POSTGRES_DB=warehouse
+    ports:
+      - "5433:5432"
