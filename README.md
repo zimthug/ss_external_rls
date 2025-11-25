@@ -1,3 +1,12 @@
+# Embedded Superset Dashboard
+
+## My Goal
+
+Coming soon
+
+## Architecture
+
+Coming soon
 
 
 ### Dataset
