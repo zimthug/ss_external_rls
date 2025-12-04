@@ -19,4 +19,4 @@ COPY ./data/superset/dashboard_export.zip /tmp/dashboard_export.zip
 
 COPY scripts/entrypoint.sh /app/entrypoint.sh
 
-ENTRYPOINT ["/app/entrypoint.sh"]
+ENTRYPOINT ["sh", "/app/entrypoint.sh"]
