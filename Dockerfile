@@ -9,7 +9,7 @@ RUN apt-get update && \
 
 # USER superset
 
-RUN uv pip install --no-cache-dir psycopg2-binary Flask-Cors
+RUN uv pip install --no-cache-dir psycopg2-binary Flask-Cors snowflake-sqlalchemy snowflake-connector-python
 
 USER superset
 
